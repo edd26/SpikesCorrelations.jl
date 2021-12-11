@@ -1,7 +1,12 @@
 module SpikesCorrelations
 
+# "CorrelationIndex.jl" |> include
+# "SpikesCorrelations.jl" |> include
+# "TilingCoefficient.jl" |> include
+"VPDistance.jl" |> include
+
 # Write your package code here.
-export correlation_index, tailing_coefficient
+export correlation_index, tailing_coefficient, spkd
 
 
 end
