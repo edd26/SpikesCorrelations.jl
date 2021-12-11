@@ -1,7 +1,7 @@
 
 function correlation_index(
     spike_vactor1::Array,
-    spike_vactor2::Aray,
+    spike_vactor2::Array,
     delta_t::Float64,
     Time::Float64,
 )
