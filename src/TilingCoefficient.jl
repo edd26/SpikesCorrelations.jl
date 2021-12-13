@@ -1,8 +1,8 @@
 
 # double run_P(int N1,int N2,double dt,double *spike_times_1,double *spike_times_2){
-function run_P(spike_times_1::Float64,
-                spike_times_2::Float64,
-                dt::Float64,
+function run_P(spike_times_1::Vector{<:Real},
+                spike_times_2::Vector{<:Real},
+                dt::Real,
             )::Float64
     Nab = 0
     N1 = length(spike_times_1)
@@ -31,10 +31,15 @@ end
 
 
 # double run_T(int N1v,double dtv,double startv, double endv, double *spike_times_1)
-function run_T(spike_times_1::Float64,
-                dt::Float64,
-                start_time::Float64,
-                stop_time::Float64,
+"""
+dt is the window size used for searching for spike cooccurance
+
+TODO: what is missing now is the how the vectors should be defined, because this would remove ambiguity about the time resolutions
+"""
+function run_T(spike_times_1::Vector{<:Real},
+                dt::Real,
+                start_time::Real,
+                stop_time::Real,
             )::Float64
     N1 = length(spike_times_1)
     vec_index = 1
@@ -52,7 +57,8 @@ function run_T(spike_times_1::Float64,
         end
     else # if more than one spike in train
         while vec_index < N1
-            diff = spike_times_1[vec_index +1] - spike_times_1[vec_index]
+            dif_index = vec_index + 1
+            diff = spike_times_1[dif_index] - spike_times_1[vec_index]
 
             if diff < 2 * dt # subtract overlap
                 time_A = time_A - 2 * dt + diff
@@ -77,11 +83,11 @@ end
 
 
 # void run_sttc(int *N1v,int *N2v,double *dtv,double *Time,double *index,double *spike_times_1,double *spike_times_2){
-function tailing_coefficient(spike_times_1::Float64,
-                                spike_times_2::Float64,
-                                dt::Float64,
-                                start_time::Float64,
-                                stop_time::Float64,
+function tailing_coefficient(spike_times_1::Vector{<:Real},
+                                spike_times_2::Vector{<:Real},
+                                dt::Real,
+                                start_time::Real,
+                                stop_time::Real,
                             )
 
     N1 = length(spike_times_1)
