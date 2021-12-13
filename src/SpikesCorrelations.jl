@@ -1,8 +1,8 @@
 module SpikesCorrelations
 
-# "CorrelationIndex.jl" |> include
+"CorrelationIndex.jl" |> include
 # "SpikesCorrelations.jl" |> include
-# "TilingCoefficient.jl" |> include
+"TilingCoefficient.jl" |> include
 "VPDistance.jl" |> include
 
 # Write your package code here.
