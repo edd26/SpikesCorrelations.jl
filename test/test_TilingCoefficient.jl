@@ -1,4 +1,8 @@
-# TODO Design test cases
+# TODO Re-design test cases
+# TODO In the paper they used 3000s of simulations for tests
+# TODO Firing rates in the paper: 0.76Hz, 1.27Hz, 2.5Hz
+# TODO For bursts, N=8
+# TODO delta t could be se to 50 ms 9according to Demas et al
 
 Δ1 = 20 # Millisecond
 Δ2 = 200 # Millisecond
